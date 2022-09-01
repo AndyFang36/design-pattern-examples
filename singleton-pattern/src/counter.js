@@ -1,12 +1,13 @@
 let instance;
-let counter = 0;
+let count = 0;
 
 class Counter {
   constructor() {
-    if (instance) {
-      throw new Error("You can only create one instance!");
+    if (instance !== undefined) {
+      throw new Error("Only one instance is allowed!");
     }
     instance = this;
+    //this.count = 0;
   }
 
   getInstance() {
@@ -14,17 +15,18 @@ class Counter {
   }
 
   getCount() {
-    return counter;
+    return count;
   }
 
   increment() {
-    return ++counter;
+    return ++count;
   }
 
   decrement() {
-    return --counter;
+    return --count;
   }
 }
 
 const singletonCounter = Object.freeze(new Counter());
+
 export default singletonCounter;
