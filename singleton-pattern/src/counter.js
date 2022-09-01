@@ -3,11 +3,11 @@ let count = 0;
 
 class Counter {
   constructor() {
-    if (instance !== undefined) {
+    if (instance === undefined) {
+      instance = this;
+    } else {
       throw new Error("Only one instance is allowed!");
     }
-    instance = this;
-    //this.count = 0;
   }
 
   getInstance() {
